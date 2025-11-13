@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharif School Games 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 50%, #f9bf1d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated particles */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s infinite;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3); }
+            50% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5); }
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce-arrow 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: "↓";
+            font-size: 40px;
+            color: white;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Sports Section */
+        .sports-section {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sports-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .sport-card {
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .sport-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sport-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .sport-card:hover::before {
+            left: 100%;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(249, 191, 29, 0.6);
+        }
+
+        .sport-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .sport-card:hover .sport-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .sport-name {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .sport-description {
+            color: rgba(255, 255, 255, 0);
+            font-size: 16px;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .sport-card:hover .sport-description {
+            color: rgba(255, 255, 255, 0.95);
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* Sport Detail Page */
+        .detail-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 100%);
+            padding: 60px 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .detail-page.active {
+            display: block;
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .detail-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .detail-title {
+            font-size: 48px;
+            color: #0e067f;
+            margin-bottom: 10px;
+        }
+
+        .detail-subtitle {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-section h2 {
+            font-size: 28px;
+            color: #0e067f;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #f9bf1d;
+            padding-bottom: 10px;
+        }
+
+        .detail-section p, .detail-section ul {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .detail-section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 10px;
+        }
+
+        .register-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #0e067f 0%, #f9bf1d 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .register-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(249, 191, 29, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .detail-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>SHARIF SCHOOL GAMES</h1>
+            <p>Unleash Your Athletic Spirit</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Sports Section -->
+    <section class="sports-section" id="sports">
+        <h2 class="section-title">Choose Your Sport</h2>
+        <div class="sports-grid">
+            <div class="sport-card" onclick="showDetail('cricket')">
+                <span class="sport-icon">🏏</span>
+                <h3 class="sport-name">Cricket</h3>
+                <p class="sport-description">The gentleman's game of strategy and skill</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('football')">
+                <span class="sport-icon">⚽</span>
+                <h3 class="sport-name">Football</h3>
+                <p class="sport-description">The beautiful game that unites the world</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('basketball')">
+                <span class="sport-icon">🏀</span>
+                <h3 class="sport-name">Basketball</h3>
+                <p class="sport-description">Fast-paced action and incredible athleticism</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('badminton')">
+                <span class="sport-icon">🏸</span>
+                <h3 class="sport-name">Badminton</h3>
+                <p class="sport-description">Speed, precision, and lightning-fast reflexes</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('athletics')">
+                <span class="sport-icon">🏃</span>
+                <h3 class="sport-name">Athletics</h3>
+                <p class="sport-description">Test your speed, strength, and endurance</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('volleyball')">
+                <span class="sport-icon">🏐</span>
+                <h3 class="sport-name">Volleyball</h3>
+                <p class="sport-description">Teamwork and power at the net</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Pages -->
+    <div class="detail-page" id="detail-cricket">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏏</div>
+                <h1 class="detail-title">Cricket</h1>
+                <p class="detail-subtitle">The Gentleman's Game</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Cricket is a bat-and-ball game played between two teams of eleven players. It requires strategy, skill, and teamwork to score runs while defending your wicket.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Each team gets to bat and bowl</li>
+                    <li>Score runs by hitting the ball and running between wickets</li>
+                    <li>Batsman is out if bowled, caught, LBW, run out, or stumped</li>
+                    <li>Match consists of overs (6 balls per over)</li>
+                    <li>Team with most runs wins</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>The tournament will be played in T20 format with 8 teams competing. Matches will be held during school hours with knockout rounds leading to the grand finale.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Sports uniform required</li>
+                    <li>Cricket shoes (optional but recommended)</li>
+                    <li>Protective gear will be provided</li>
+                    <li>Team must have 11 players minimum</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Cricket 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-football">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">⚽</div>
+                <h1 class="detail-title">Football</h1>
+                <p class="detail-subtitle">The Beautiful Game</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Football is the world's most popular sport, combining skill, strategy, and teamwork. Score goals by getting the ball into the opponent's net using any part of your body except your hands.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 11 players each</li>
+                    <li>Match duration: 40 minutes (20 min per half)</li>
+                    <li>No hands allowed (except goalkeeper in penalty area)</li>
+                    <li>Free kicks awarded for fouls</li>
+                    <li>Offside rule applies</li>
+                    <li>Yellow and red cards for misconduct</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>League format followed by semi-finals and finals. All matches will be played on the main football ground. Group stage matches will determine top 4 teams for knockout rounds.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Football boots or sports shoes</li>
+                    <li>Shin guards mandatory</li>
+                    <li>Sports uniform required</li>
+                    <li>Water bottle recommended</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Football 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-basketball">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏀</div>
+                <h1 class="detail-title">Basketball</h1>
+                <p class="detail-subtitle">Fast-Paced Court Action</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Basketball is a dynamic team sport where players score by shooting the ball through the opponent's hoop. It requires agility, precision, and excellent coordination.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 5 players each</li>
+                    <li>Score by shooting ball through hoop (2 or 3 points)</li>
+                    <li>Dribble or pass the ball to move it</li>
+                    <li>No running with the ball (traveling violation)</li>
+                    <li>Fouls result in free throws</li>
+                    <li>24-second shot clock</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Double elimination tournament format. Games will be 4 quarters of 8 minutes each. Top teams will advance to championship round.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Basketball shoes required</li>
+                    <li>Sports uniform</li>
+                    <li>Knee pads recommended</li>
+                    <li>Team must have minimum 5 players</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Basketball 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-badminton">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏸</div>
+                <h1 class="detail-title">Badminton</h1>
+                <p class="detail-subtitle">Speed and Precision</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Badminton is a racket sport where players hit a shuttlecock across a net. It's one of the fastest racket sports, requiring quick reflexes and strategic play.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Singles (1v1) or Doubles (2v2) format</li>
+                    <li>Games played to 21 points</li>
+                    <li>Must win by 2 points</li>
+                    <li>Shuttlecock must not touch the ground</li>
+                    <li>Server serves diagonally to opponent</li>
+                    <li>Best of 3 games wins the match</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Both singles and doubles events will be held. Knockout format from round of 16 onwards. All matches are best of 3 games.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Racket (can be borrowed from school)</li>
+                    <li>Sports shoes with good grip</li>
+                    <li>Sports uniform required</li>
+                    <li>Sweatband recommended</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Badminton 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-athletics">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏃</div>
+                <h1 class="detail-title">Athletics</h1>
+                <p class="detail-subtitle">Track and Field Excellence</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Athletics encompasses various track and field events testing speed, endurance, strength, and jumping ability. Compete individually in multiple events.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Events</h2>
+                <ul>
+                    <li><strong>Sprints:</strong> 100m, 200m, 400m</li>
+                    <li><strong>Middle Distance:</strong> 800m, 1500m</li>
+                    <li><strong>Relay:</strong> 4x100m, 4x400m</li>
+                    <li><strong>Jumping:</strong> Long Jump, High Jump</li>
+                    <li><strong>Throwing:</strong> Shot Put, Discus</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Rules & Format</h2>
+                <p>Students can participate in maximum 3 individual events plus relays. Heats and finals format for track events. Best attempt counts for field events. Points awarded based on performance for overall championship.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Running shoes/spikes</li>
+                    <li>Sports uniform</li>
+                    <li>Proper warm-up mandatory</li>
+                    <li>Medical clearance recommended</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Athletics 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-volleyball">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏐</div>
+                <h1 class="detail-title">Volleyball</h1>
+                <p class="detail-subtitle">Power at the Net</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Volleyball is a team sport where two teams hit a ball over a net trying to make it land in the opponent's court. It requires coordination, jumping ability, and teamwork.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 6 players each</li>
+                    <li>Maximum 3 touches per side</li>
+                    <li>Games played to 25 points (win by 2)</li>
+                    <li>Rally scoring system</li>
+                    <li>Best of 5 sets wins the match</li>
+                    <li>Rotation after winning serve</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Pool play followed by single elimination playoffs. All matches best of 3 sets. Championship match will be best of 5 sets.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Volleyball shoes or court shoes</li>
+                    <li>Knee pads mandatory</li>
+                    <li>Sports uniform required</li>
+                    <li>Team must have 6-8 players</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="alert('Registration form will open soon!')">Register for Volleyball 🚀</button>
+        </div>
+    </div>
+
+    <script>
+        // Create animated particles
+        const hero = document.getElementById('hero');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+            hero.appendChild(particle);
+        }
+
+        // Scroll animation for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.sport-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        document.querySelector('.section-title').classList.add('visible');
+
+        // Show detail page
+        function showDetail(sport) {
+            document.getElementById('sports').style.display = 'none';
+            document.getElementById('detail-' + sport).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Hide detail page
+        function hideDetail() {
+            document.querySelectorAll('.detail-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('sports').style.display = 'block';
+            document.getElementById('sports').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
