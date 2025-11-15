@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharif School Games 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Hero Section with Sports Background */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(14, 6, 127, 0.85), rgba(14, 6, 127, 0.85)), 
+                        url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Dynamic sports icons floating */
+        .sports-icon-float {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.15;
+            animation: float-sports 20s infinite ease-in-out;
+        }
+
+        @keyframes float-sports {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+        }
+
+        .icon1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .icon2 { top: 20%; right: 15%; animation-delay: 2s; }
+        .icon3 { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .icon4 { bottom: 15%; right: 10%; animation-delay: 6s; }
+        .icon5 { top: 50%; left: 5%; animation-delay: 8s; }
+        .icon6 { top: 40%; right: 5%; animation-delay: 10s; }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 90px;
+            color: #f9bf1d;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(249, 191, 29, 0.8), 0 5px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 4px;
+            font-weight: 900;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(249, 191, 29, 0.8), 0 5px 20px rgba(0, 0, 0, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(249, 191, 29, 1), 0 5px 30px rgba(0, 0, 0, 0.7); }
+        }
+
+        .hero p {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #f9bf1d;
+            margin-top: 20px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce-arrow 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: "↓";
+            font-size: 50px;
+            color: #f9bf1d;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* Age Categories Section */
+        .age-categories {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0e067f 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .age-categories h2 {
+            font-size: 48px;
+            color: #f9bf1d;
+            margin-bottom: 50px;
+        }
+
+        .age-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .age-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid #f9bf1d;
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .age-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(249, 191, 29, 0.4);
+        }
+
+        .age-card h3 {
+            font-size: 32px;
+            color: #f9bf1d;
+            margin-bottom: 15px;
+        }
+
+        .age-card p {
+            font-size: 18px;
+            color: white;
+        }
+
+        /* Sports Section */
+        .sports-section {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0e067f 0%, #1a0fb5 100%);
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            color: #f9bf1d;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sports-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .sport-card {
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 100%);
+            border: 2px solid #f9bf1d;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .sport-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sport-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(249, 191, 29, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .sport-card:hover::before {
+            left: 100%;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(249, 191, 29, 0.6);
+            border-color: #f9bf1d;
+        }
+
+        .sport-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .sport-card:hover .sport-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .sport-name {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .sport-description {
+            color: rgba(255, 255, 255, 0);
+            font-size: 16px;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .sport-card:hover .sport-description {
+            color: rgba(255, 255, 255, 0.95);
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .sport-card.center-view .sport-description {
+            color: rgba(255, 255, 255, 0.95);
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .sport-card.center-view .sport-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Rules Section */
+        .rules-section {
+            background: linear-gradient(180deg, #1a0fb5 0%, #0a0a0a 100%);
+            padding: 80px 20px;
+        }
+
+        .rules-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #f9bf1d;
+        }
+
+        .rules-container h2 {
+            font-size: 48px;
+            color: #f9bf1d;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .rules-container h3 {
+            font-size: 28px;
+            color: #f9bf1d;
+            margin: 30px 0 20px 0;
+        }
+
+        .rules-container p,
+        .rules-container ul {
+            font-size: 18px;
+            color: white;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .rules-container ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .rules-container li {
+            margin-bottom: 10px;
+        }
+
+        .fee-box {
+            background: rgba(249, 191, 29, 0.1);
+            border: 2px solid #f9bf1d;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .fee-box strong {
+            color: #f9bf1d;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #0a0a0a;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 48px;
+            color: #f9bf1d;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: rgba(14, 6, 127, 0.3);
+            border: 2px solid #f9bf1d;
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(249, 191, 29, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 24px;
+            color: #f9bf1d;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: 20px;
+            color: white;
+            margin: 5px 0;
+        }
+
+        .social-handle {
+            font-size: 22px;
+            color: #f9bf1d;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Detail Page */
+        .detail-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 100%);
+            padding: 60px 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .detail-page.active {
+            display: block;
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid #f9bf1d;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: #f9bf1d;
+            color: #0e067f;
+            transform: translateX(-5px);
+        }
+
+        .detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .detail-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .detail-title {
+            font-size: 48px;
+            color: #0e067f;
+            margin-bottom: 10px;
+        }
+
+        .detail-subtitle {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-section h2 {
+            font-size: 28px;
+            color: #0e067f;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #f9bf1d;
+            padding-bottom: 10px;
+        }
+
+        .detail-section p, .detail-section ul {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .detail-section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 10px;
+        }
+
+        .register-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #0e067f 0%, #f9bf1d 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .register-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(249, 191, 29, 0.6);
+        }
+
+        /* Registration Page */
+        .registration-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e067f 0%, #1a0fb5 100%);
+            padding: 60px 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .registration-page.active {
+            display: block;
+        }
+
+        .registration-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .reg-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .reg-header h1 {
+            font-size: 42px;
+            color: #f9bf1d;
+            margin-bottom: 10px;
+        }
+
+        .reg-header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .reg-form-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0e067f;
+            box-shadow: 0 0 0 3px rgba(14, 6, 127, 0.1);
+        }
+
+        .required-star {
+            color: #e74c3c;
+        }
+
+        .selected-sport {
+            background: linear-gradient(135deg, #0e067f 0%, #f9bf1d 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .submit-registration {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #0e067f 0%, #f9bf1d 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-registration:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(249, 191, 29, 0.6);
+        }
+
+        .success-msg {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .success-msg.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-overlay.show {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .popup-title {
+            font-size: 32px;
+            color: #4caf50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .popup-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .popup-close {
+            background: linear-gradient(135deg, #0e067f 0%, #f9bf1d 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popup-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 191, 29, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero p {
+                font-size: 20px;
+            }
+            .detail-container,
+            .rules-container {
+                padding: 30px 20px;
+            }
+            .section-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="sports-icon-float icon1">⚽</div>
+        <div class="sports-icon-float icon2">🏏</div>
+        <div class="sports-icon-float icon3">🏀</div>
+        <div class="sports-icon-float icon4">🏸</div>
+        <div class="sports-icon-float icon5">🎮</div>
+        <div class="sports-icon-float icon6">♟️</div>
+        
+        <div class="hero-content">
+            <h1>SHARIF SCHOOL GAMES</h1>
+            <p>Unleash Your Athletic Spirit</p>
+            <p class="hero-subtitle">SEC Sports Fest</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Age Categories Section -->
+    <section class="age-categories">
+        <h2>Age Categories</h2>
+        <div class="age-grid">
+            <div class="age-card">
+                <h3>U-13</h3>
+                <p>Till Class 8</p>
+            </div>
+            <div class="age-card">
+                <h3>U-17</h3>
+                <p>Till Class 10</p>
+            </div>
+            <div class="age-card">
+                <h3>U-19</h3>
+                <p>Till 2nd Year & O,A-Levels</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Section -->
+    <section class="sports-section" id="sports">
+        <h2 class="section-title">Choose Your Sport</h2>
+        <div class="sports-grid">
+            <div class="sport-card" onclick="showDetail('cricket')">
+                <span class="sport-icon">🏏</span>
+                <h3 class="sport-name">Cricket</h3>
+                <p class="sport-description">The gentleman's game of strategy and skill</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('football')">
+                <span class="sport-icon">⚽</span>
+                <h3 class="sport-name">Football</h3>
+                <p class="sport-description">The beautiful game that unites the world</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('basketball')">
+                <span class="sport-icon">🏀</span>
+                <h3 class="sport-name">Basketball</h3>
+                <p class="sport-description">Fast-paced action and incredible athleticism</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('badminton')">
+                <span class="sport-icon">🏸</span>
+                <h3 class="sport-name">Badminton</h3>
+                <p class="sport-description">Speed, precision, and lightning-fast reflexes</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('volleyball')">
+                <span class="sport-icon">🏐</span>
+                <h3 class="sport-name">Volleyball</h3>
+                <p class="sport-description">Teamwork and power at the net</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('tugofwar')">
+                <span class="sport-icon">🪢</span>
+                <h3 class="sport-name">Tug of War</h3>
+                <p class="sport-description">Ultimate test of strength and teamwork</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('ludo')">
+                <span class="sport-icon">🎲</span>
+                <h3 class="sport-name">Ludo</h3>
+                <p class="sport-description">Classic board game of strategy and luck</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('chess')">
+                <span class="sport-icon">♟️</span>
+                <h3 class="sport-name">Chess</h3>
+                <p class="sport-description">The ultimate game of intellect and strategy</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('fifa')">
+                <span class="sport-icon">🎮</span>
+                <h3 class="sport-name">FIFA</h3>
+                <p class="sport-description">Virtual football at its finest</p>
+            </div>
+
+            <div class="sport-card" onclick="showDetail('tekken')">
+                <span class="sport-icon">🥊</span>
+                <h3 class="sport-name">Tekken</h3>
+                <p class="sport-description">Master the art of virtual combat</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Rules Section -->
+    <section class="rules-section">
+        <div class="rules-container">
+            <h2>Registration Rules</h2>
+            
+            <h3>Delegation Requirements</h3>
+            <ul>
+                <li>Each institution may send a minimum of 2 and a maximum of 12 delegates per delegation, depending on the chosen category.</li>
+                <li>Institutions may send multiple delegations, but they must be identified with either a letter or a team name.</li>
+            </ul>
+
+            <h3>Registration Fee Structure</h3>
+            <div class="fee-box">
+                <p><strong>PKR 1000/-</strong> per person (1 game)</p>
+                <p><strong>PKR 1300/-</strong> per person (2 games)</p>
+                <p><strong>PKR 1600/-</strong> per person (3 games)</p>
+            </div>
+
+            <h3>Important Rules</h3>
+            <ul>
+                <li>Each participant can participate in a maximum of three categories.</li>
+                <li>Registrations will be confirmed only upon receipt of payment.</li>
+                <li>Delegate cards will be distributed on Day 1.</li>
+                <li>Failure to receive these cards will result in automatic disqualification.</li>
+            </ul>
+
+            <p style="text-align: center; margin-top: 30px; font-size: 20px; color: #f9bf1d;">
+                <strong>Registration Deadline:</strong> To be announced
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Sir Muhammad Amir</h3>
+                <p>+92 300 4242 613</p>
+            </div>
+            <div class="contact-card">
+                <h3>Muhammad Noor Sultan</h3>
+                <p>+92 317 0794 391</p>
+            </div>
+            <div class="contact-card">
+                <h3>Rana Moeed Sajjad</h3>
+                <p>+92 307 4424 777</p>
+            </div>
+        </div>
+        <div class="social-handle">@sharif.school.games</div>
+        <p class="school-address">85MW+9R2, Jati Umrah Lahore</p>
+    </section>
+
+    <!-- Detail Pages (Cricket, Football, Basketball, etc.) -->
+    <div class="detail-page" id="detail-cricket">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏏</div>
+                <h1 class="detail-title">Cricket</h1>
+                <p class="detail-subtitle">The Gentleman's Game</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Cricket is a bat-and-ball game played between two teams of eleven players. It requires strategy, skill, and teamwork to score runs while defending your wicket.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Each team gets to bat and bowl</li>
+                    <li>Score runs by hitting the ball and running between wickets</li>
+                    <li>Batsman is out if bowled, caught, LBW, run out, or stumped</li>
+                    <li>Match consists of overs (6 balls per over)</li>
+                    <li>Team with most runs wins</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>The tournament will be played in T20 format with teams competing. Matches will be held during the event with knockout rounds leading to the grand finale.</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Cricket')">Register for Cricket 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-football">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">⚽</div>
+                <h1 class="detail-title">Football</h1>
+                <p class="detail-subtitle">The Beautiful Game</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Football is the world's most popular sport, combining skill, strategy, and teamwork. Score goals by getting the ball into the opponent's net.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 11 players each</li>
+                    <li>No hands allowed (except goalkeeper in penalty area)</li>
+                    <li>Free kicks awarded for fouls</li>
+                    <li>Offside rule applies</li>
+                    <li>Yellow and red cards for misconduct</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Football')">Register for Football 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-basketball">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏀</div>
+                <h1 class="detail-title">Basketball</h1>
+                <p class="detail-subtitle">Fast-Paced Court Action</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Basketball is a dynamic team sport where players score by shooting the ball through the opponent's hoop. Requires agility, precision, and coordination.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 5 players each</li>
+                    <li>Score by shooting ball through hoop (2 or 3 points)</li>
+                    <li>Dribble or pass to move the ball</li>
+                    <li>No running with the ball (traveling violation)</li>
+                    <li>Fouls result in free throws</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Basketball')">Register for Basketball 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-badminton">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏸</div>
+                <h1 class="detail-title">Badminton</h1>
+                <p class="detail-subtitle">Speed and Precision</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Badminton is a racket sport where players hit a shuttlecock across a net. It's one of the fastest racket sports, requiring quick reflexes and strategic play.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Singles (1v1) or Doubles (2v2) format</li>
+                    <li>Games played to 21 points</li>
+                    <li>Must win by 2 points</li>
+                    <li>Shuttlecock must not touch the ground</li>
+                    <li>Server serves diagonally to opponent</li>
+                    <li>Best of 3 games wins the match</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Badminton')">Register for Badminton 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-volleyball">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🏐</div>
+                <h1 class="detail-title">Volleyball</h1>
+                <p class="detail-subtitle">Power at the Net</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Volleyball is a team sport where two teams hit a ball over a net trying to make it land in the opponent's court. Requires coordination, jumping ability, and teamwork.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two teams of 6 players each</li>
+                    <li>Maximum 3 touches per side</li>
+                    <li>Games played to 25 points (win by 2)</li>
+                    <li>Rally scoring system</li>
+                    <li>Best of 5 sets wins the match</li>
+                    <li>Rotation after winning serve</li>
+                </ul>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Volleyball')">Register for Volleyball 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-tugofwar">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🪢</div>
+                <h1 class="detail-title">Tug of War</h1>
+                <p class="detail-subtitle">Ultimate Strength Challenge</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Tug of War is a classic team sport where two teams pull on opposite ends of a rope. The team that pulls the rope a certain distance wins. It's the ultimate test of strength, strategy, and teamwork.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Teams of 8-10 members each</li>
+                    <li>Teams pull on opposite ends of a rope</li>
+                    <li>Win by pulling the center marker past a designated point</li>
+                    <li>Best of 3 rounds format</li>
+                    <li>All team members must maintain grip on rope</li>
+                    <li>No sitting or falling allowed</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Knockout tournament format. Each match is best of 3 pulls. Teams must coordinate their pulling rhythm and maintain strong footing throughout the competition.</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Tug of War')">Register for Tug of War 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-ludo">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🎲</div>
+                <h1 class="detail-title">Ludo</h1>
+                <p class="detail-subtitle">Classic Board Game</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Ludo is a classic board game that combines strategy and luck. Players race their four tokens from start to finish according to dice rolls. A game that's simple to learn but challenging to master!</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>2-4 players per game</li>
+                    <li>Roll a 6 to bring token out of home</li>
+                    <li>Move tokens according to dice roll</li>
+                    <li>Capture opponent tokens by landing on same space</li>
+                    <li>First player to get all 4 tokens to finish wins</li>
+                    <li>Safe zones protect your tokens</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Single elimination tournament with 4-player matches in early rounds. Semi-finals and finals will determine the ultimate Ludo champion. Strategy and luck combine for exciting gameplay!</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Ludo')">Register for Ludo 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-chess">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">♟️</div>
+                <h1 class="detail-title">Chess</h1>
+                <p class="detail-subtitle">The Game of Kings</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Chess is a strategic board game played between two players on a checkered board. It's a battle of minds where players must think several moves ahead to outmaneuver their opponent and checkmate the king.</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>Two players with 16 pieces each</li>
+                    <li>Each piece moves in specific patterns</li>
+                    <li>Capture opponent's pieces by moving to their square</li>
+                    <li>Protect your king while threatening opponent's</li>
+                    <li>Win by checkmate (king cannot escape attack)</li>
+                    <li>Draw if stalemate or insufficient material</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Swiss system tournament with time controls. Players will compete in multiple rounds with chess clocks. Top players advance to knockout finals. Think carefully, plan strategically!</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Chess')">Register for Chess 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-fifa">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🎮</div>
+                <h1 class="detail-title">FIFA</h1>
+                <p class="detail-subtitle">Virtual Football Championship</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>FIFA is the world's most popular football video game. Master controls, team tactics, and gameplay mechanics to dominate the virtual pitch. Show off your gaming skills and football knowledge!</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>1v1 matches on PlayStation/Xbox</li>
+                    <li>Choose from top international teams</li>
+                    <li>Standard match duration: 6 minutes per half</li>
+                    <li>No pausing during competitive matches</li>
+                    <li>Fair play rules apply - no exploitation of glitches</li>
+                    <li>Winner determined by score at full time</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Double elimination bracket format. Group stage followed by knockout rounds. All matches played under tournament settings. Grand final will determine the FIFA champion!</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('FIFA')">Register for FIFA 🚀</button>
+        </div>
+    </div>
+
+    <div class="detail-page" id="detail-tekken">
+        <button class="back-button" onclick="hideDetail()">← Back to Sports</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-icon">🥊</div>
+                <h1 class="detail-title">Tekken</h1>
+                <p class="detail-subtitle">Fighting Game Mastery</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>About</h2>
+                <p>Tekken is one of the most iconic fighting games in esports history. Master complex combos, juggle techniques, and character matchups to become the ultimate fighter. Every frame counts!</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Basic Rules</h2>
+                <ul>
+                    <li>1v1 fighting matches</li>
+                    <li>Best of 3 rounds per match</li>
+                    <li>Character selection before each match</li>
+                    <li>No coaching during matches</li>
+                    <li>Standard tournament rules apply</li>
+                    <li>Respect your opponent at all times</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Tournament Format</h2>
+                <p>Single elimination bracket with best of 3 matches. Semi-finals and finals will be best of 5. Master your character's move list and adapt to different playstyles to claim victory!</p>
+            </div>
+
+            <button class="register-button" onclick="showRegistration('Tekken')">Register for Tekken 🚀</button>
+        </div>
+    </div>
+
+    <!-- Registration Page -->
+    <div class="registration-page" id="registrationPage">
+        <button class="back-button" onclick="backToDetail()">← Back</button>
+        <div class="registration-container">
+            <div class="reg-header">
+                <h1>Register Now</h1>
+                <p>Fill in your details to join the competition</p>
+            </div>
+
+            <div class="reg-form-card">
+                <div class="selected-sport" id="selectedSport">Sport: Cricket</div>
+
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label>Full Name <span class="required-star">*</span></label>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Institution Name <span class="required-star">*</span></label>
+                        <input type="text" id="institution" required placeholder="Enter your school/institution name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age Category <span class="required-star">*</span></label>
+                        <select id="ageCategory" required>
+                            <option value="">Select age category</option>
+                            <option value="U-13">U-13 (Till Class 8)</option>
+                            <option value="U-17">U-17 (Till Class 10)</option>
+                            <option value="U-19">U-19 (Till 2nd Year & O,A-Levels)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Class <span class="required-star">*</span></label>
+                        <select id="class" required>
+                            <option value="">Select your class</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                            <option value="11">Class 11</option>
+                            <option value="12">Class 12</option>
+                            <option value="1st-year">1st Year</option>
+                            <option value="2nd-year">2nd Year</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email <span class="required-star">*</span></label>
+                        <input type="email" id="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number <span class="required-star">*</span></label>
+                        <input type="tel" id="phone" required placeholder="03XX-XXXXXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Games Participating <span class="required-star">*</span></label>
+                        <select id="gamesCount" required>
+                            <option value="">Select number of games</option>
+                            <option value="1">1 Game (PKR 1000)</option>
+                            <option value="2">2 Games (PKR 1300)</option>
+                            <option value="3">3 Games (PKR 1600)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Team/Delegation Name (if applicable)</label>
+                        <input type="text" id="teamName" placeholder="Enter team name or letter">
+                    </div>
+
+                    <button type="submit" class="submit-registration">Complete Registration 🎉</button>
+                </form>
+
+                <div class="success-msg" id="successMsg">
+                    ✅ Registration Successful! You're all set for Sharif School Games!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated sports icons in hero
+        const hero = document.getElementById('hero');
+
+        // Scroll animation for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.sport-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Center card animation for mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            const centerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        entry.target.classList.add('center-view');
+                    } else {
+                        entry.target.classList.remove('center-view');
+                    }
+                });
+            }, { 
+                threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                rootMargin: '-30% 0px -30% 0px'
+            });
+
+            document.querySelectorAll('.sport-card').forEach(card => {
+                centerObserver.observe(card);
+            });
+        }
+
+        // Make section title visible
+        setTimeout(() => {
+            document.querySelector('.section-title').classList.add('visible');
+        }, 200);
+
+        // Show detail page
+        function showDetail(sport) {
+            document.getElementById('sports').style.display = 'none';
+            document.querySelector('.age-categories').style.display = 'none';
+            document.querySelector('.rules-section').style.display = 'none';
+            document.querySelector('.contact-section').style.display = 'none';
+            document.getElementById('detail-' + sport).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Hide detail page
+        function hideDetail() {
+            document.querySelectorAll('.detail-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('sports').style.display = 'block';
+            document.querySelector('.age-categories').style.display = 'block';
+            document.querySelector('.rules-section').style.display = 'block';
+            document.querySelector('.contact-section').style.display = 'block';
+            document.getElementById('sports').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show registration page
+        let currentSport = '';
+        let currentDetailPage = '';
+
+        function showRegistration(sport) {
+            currentSport = sport;
+            // Hide detail page
+            document.querySelectorAll('.detail-page').forEach(page => {
+                if (page.classList.contains('active')) {
+                    currentDetailPage = page.id;
+                    page.classList.remove('active');
+                }
+            });
+            // Show registration page
+            document.getElementById('selectedSport').textContent = 'Sport: ' + sport;
+            document.getElementById('registrationPage').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Back to detail page from registration
+        function backToDetail() {
+            document.getElementById('registrationPage').classList.remove('active');
+            if (currentDetailPage) {
+                document.getElementById(currentDetailPage).classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                sport: currentSport,
+                name: document.getElementById('name').value,
+                institution: document.getElementById('institution').value,
+                ageCategory: document.getElementById('ageCategory').value,
+                class: document.getElementById('class').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                gamesCount: document.getElementById('gamesCount').value,
+                teamName: document.getElementById('teamName').value
+            };
+
+            console.log('Registration Data:', formData);
+
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`Registration for ${currentSport} - Sharif School Games`);
+            const body = encodeURIComponent(
+                `Registration Details:\n\n` +
+                `Sport: ${formData.sport}\n` +
+                `Name: ${formData.name}\n` +
+                `Institution: ${formData.institution}\n` +
+                `Age Category: ${formData.ageCategory}\n` +
+                `Class: ${formData.class}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Number of Games: ${formData.gamesCount}\n` +
+                `Team/Delegation Name: ${formData.teamName || 'N/A'}\n\n` +
+                `Please confirm my registration.`
+            );
+
+            // Open email client
+            window.location.href = `mailto:sharifgames414@gmail.com?subject=${subject}&body=${body}`;
+
+            // Show success message
+            document.getElementById('successMsg').classList.add('show');
+
+            // Reset form and redirect after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                document.getElementById('successMsg').classList.remove('show');
+                document.getElementById('registrationPage').classList.remove('active');
+                document.getElementById('sports').style.display = 'block';
+                document.querySelector('.age-categories').style.display = 'block';
+                document.querySelector('.rules-section').style.display = 'block';
+                document.querySelector('.contact-section').style.display = 'block';
+                document.getElementById('sports').scrollIntoView({ behavior: 'smooth' });
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
