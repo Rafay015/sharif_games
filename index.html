@@ -267,6 +267,30 @@
             transform: scale(1.2) rotate(5deg);
         }
 
+        .see-more-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid #f9bf1d;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+
+        .see-more-btn:hover {
+            background: #f9bf1d;
+            color: #0e067f;
+            transform: translateX(-5px);
+        }
+
+        .sport-card:hover .see-more-btn {
+            display: block;
+        }
+
         /* Rules Section */
         .rules-section {
             background: linear-gradient(180deg, #1a0fb5 0%, #0a0a0a 100%);
