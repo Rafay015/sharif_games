@@ -257,13 +257,13 @@
             margin-top: 10px;
         }
 
-        .sport-card.center-view .sport-description {
+        .sport-card .sport-description {
             color: rgba(255, 255, 255, 0.95);
             height: auto;
             margin-top: 10px;
         }
 
-        .sport-card.center-view .sport-icon {
+        .sport-card .sport-icon {
             transform: scale(1.2) rotate(5deg);
         }
 
@@ -738,64 +738,74 @@
     <section class="sports-section" id="sports">
         <h2 class="section-title">Choose Your Sport</h2>
         <div class="sports-grid">
-            <div class="sport-card" onclick="showDetail('cricket')">
+            <div class="sport-card">
                 <span class="sport-icon">🏏</span>
                 <h3 class="sport-name">Cricket</h3>
                 <p class="sport-description">The gentleman's game of strategy and skill</p>
+                <button class="see-more-btn" onclick="showDetail('cricket')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('football')">
+            <div class="sport-card">
                 <span class="sport-icon">⚽</span>
                 <h3 class="sport-name">Football</h3>
                 <p class="sport-description">The beautiful game that unites the world</p>
+                <button class="see-more-btn" onclick="showDetail('football')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('basketball')">
+            <div class="sport-card">
                 <span class="sport-icon">🏀</span>
                 <h3 class="sport-name">Basketball</h3>
                 <p class="sport-description">Fast-paced action and incredible athleticism</p>
+                <button class="see-more-btn" onclick="showDetail('basketball')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('badminton')">
+            <div class="sport-card">
                 <span class="sport-icon">🏸</span>
                 <h3 class="sport-name">Badminton</h3>
                 <p class="sport-description">Speed, precision, and lightning-fast reflexes</p>
+                <button class="see-more-btn" onclick="showDetail('badminton')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('volleyball')">
+            <div class="sport-card">
                 <span class="sport-icon">🏐</span>
                 <h3 class="sport-name">Volleyball</h3>
                 <p class="sport-description">Teamwork and power at the net</p>
+                <button class="see-more-btn" onclick="showDetail('volleyball')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('tugofwar')">
+            <div class="sport-card">
                 <span class="sport-icon">🪢</span>
                 <h3 class="sport-name">Tug of War</h3>
                 <p class="sport-description">Ultimate test of strength and teamwork</p>
+                <button class="see-more-btn" onclick="showDetail('tugofwar')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('ludo')">
+            <div class="sport-card">
                 <span class="sport-icon">🎲</span>
                 <h3 class="sport-name">Ludo</h3>
                 <p class="sport-description">Classic board game of strategy and luck</p>
+                <button class="see-more-btn" onclick="showDetail('ludo')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('chess')">
+            <div class="sport-card">
                 <span class="sport-icon">♟️</span>
                 <h3 class="sport-name">Chess</h3>
                 <p class="sport-description">The ultimate game of intellect and strategy</p>
+                <button class="see-more-btn" onclick="showDetail('chess')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('fifa')">
+            <div class="sport-card">
                 <span class="sport-icon">🎮</span>
-                <h3 class="sport-name">FIFA</h3>
+                <h3 ="sport-name">FIFA</h3>
                 <p class="sport-description">Virtual football at its finest</p>
+                <button class="see-more-btn" onclick="showDetail('fifa')">See More</button>
             </div>
 
-            <div class="sport-card" onclick="showDetail('tekken')">
+            <div class="sport-card">
                 <span class="sport-icon">🥊</span>
                 <h3 class="sport-name">Tekken</h3>
                 <p class="sport-description">Master the art of virtual combat</p>
+                <button class="see-more-btn" onclick="showDetail('tekken')">See More</button>
             </div>
         </div>
     </section>
@@ -884,7 +894,7 @@
                 <p>The tournament will be played in T20 format with teams competing. Matches will be held during the event with knockout rounds leading to the grand finale.</p>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Cricket 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Cricket 🚀</button>
         </div>
     </div>
 
@@ -913,7 +923,7 @@
                 </ul>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Football 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Football 🚀</button>
         </div>
     </div>
 
@@ -942,7 +952,7 @@
                 </ul>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Basketball 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Basketball 🚀</button>
         </div>
     </div>
 
@@ -972,7 +982,7 @@
                 </ul>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Badminton 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Badminton 🚀</button>
         </div>
     </div>
 
@@ -1002,7 +1012,7 @@
                 </ul>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Volleyball 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Volleyball 🚀</button>
         </div>
     </div>
 
@@ -1037,7 +1047,7 @@
                 <p>Knockout tournament format. Each match is best of 3 pulls. Teams must coordinate their pulling rhythm and maintain strong footing throughout the competition.</p>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Tug of War 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Tug of War 🚀</button>
         </div>
     </div>
 
@@ -1072,7 +1082,7 @@
                 <p>Single elimination tournament with 4-player matches in early rounds. Semi-finals and finals will determine the ultimate Ludo champion. Strategy and luck combine for exciting gameplay!</p>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Ludo 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Ludo 🚀</button>
         </div>
     </div>
 
@@ -1107,7 +1117,7 @@
                 <p>Swiss system tournament with time controls. Players will compete in multiple rounds with chess clocks. Top players advance to knockout finals. Think carefully, plan strategically!</p>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for Chess 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Chess 🚀</button>
         </div>
     </div>
 
@@ -1142,7 +1152,7 @@
                 <p>Double elimination bracket format. Group stage followed by knockout rounds. All matches played under tournament settings. Grand final will determine the FIFA champion!</p>
             </div>
 
-            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfxXlBdGnGrbkmUbhmC-R0XWtEXlVLNKsQPG90KcqdEWyCZpQ/viewform?usp=header')">Register for FIFA 🚀</button>
+            <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for FIFA 🚀</button>
         </div>
     </div>
 
