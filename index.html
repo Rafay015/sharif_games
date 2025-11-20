@@ -9,8 +9,24 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+         a, button, input, textarea {
             -webkit-tap-highlight-color: transparent;
         }
+
+         body {
+            -webkit-user-select: text;
+        }
+
+        .overlay {
+            pointer-events: none;
+        }
+
+        a, button {
+            pointer-events: auto;
+        }
+
 
         header {
             position: absolute;
