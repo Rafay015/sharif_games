@@ -898,7 +898,7 @@
             
             <h3>Delegation Requirements</h3>
             <ul>
-                <li>Each institution may send a minimum of 2 and a maximum of 12 delegates per delegation, depending on the chosen category.</li>
+                <li>Every delegation must be accompanied by a coach.</li>
                 <li>Institutions may send multiple delegations, but they must be identified with either a letter or a team name.</li>
             </ul>
 
@@ -1269,100 +1269,6 @@
             </div>
 
             <button class="register-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSciNUSykeHJkYvkvqOZcCjlLU_vwYXzdQx7lVzvNh6UwV5a2g/viewform?usp=dialog', '_blank')">Register for Tekken 🚀</button>
-        </div>
-    </div>
-
-    <!-- Registration Page -->
-    <div class="registration-page" id="registrationPage">
-        <button class="back-button" onclick="backToDetail()">← Back</button>
-        <div class="registration-container">
-            <div class="reg-header">
-                <h1>Register Now</h1>
-                <p>Fill in your details to join the competition</p>
-            </div>
-
-            <div class="reg-form-card">
-                <div class="selected-sport" id="selectedSport">Sport: Cricket</div>
-
-                <form id="registrationForm">
-                    <div class="form-group">
-                        <label>Full Name <span class="required-star">*</span></label>
-                        <input type="text" id="name" required placeholder="Enter your full name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Institution Name <span class="required-star">*</span></label>
-                        <input type="text" id="institution" required placeholder="Enter your school/institution name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Age Category <span class="required-star">*</span></label>
-                        <select id="ageCategory" required>
-                            <option value="">Select age category</option>
-                            <option value="U-13">U-13 (Till Class 8)</option>
-                            <option value="U-17">U-17 (Till Class 10)</option>
-                            <option value="U-19">U-19 (Till 2nd Year & O,A-Levels)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Class <span class="required-star">*</span></label>
-                        <select id="class" required>
-                            <option value="">Select your class</option>
-                            <option value="6">Class 6</option>
-                            <option value="7">Class 7</option>
-                            <option value="8">Class 8</option>
-                            <option value="9">Class 9</option>
-                            <option value="10">Class 10</option>
-                            <option value="11">Class 11</option>
-                            <option value="12">Class 12</option>
-                            <option value="1st-year">1st Year</option>
-                            <option value="2nd-year">2nd Year</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email <span class="required-star">*</span></label>
-                        <input type="email" id="email" required placeholder="your.email@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number <span class="required-star">*</span></label>
-                        <input type="tel" id="phone" required placeholder="03XX-XXXXXXX">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Number of Games Participating <span class="required-star">*</span></label>
-                        <select id="gamesCount" required>
-                            <option value="">Select number of games</option>
-                            <option value="1">1 Game (PKR 1000)</option>
-                            <option value="2">2 Games (PKR 1300)</option>
-                            <option value="3">3 Games (PKR 1600)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Team/Delegation Name (if applicable)</label>
-                        <input type="text" id="teamName" placeholder="Enter team name or letter">
-                    </div>
-
-                    <button type="submit" class="submit-registration">Complete Registration 🎉</button>
-                </form>
-
-                <div class="success-msg" id="successMsg">
-                    ✅ Registration Successful! You're all set for Sharif School Games!
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Popup -->
-    <div class="popup-overlay" id="successPopup">
-        <div class="popup-content">
-            <div class="popup-icon">✅</div>
-            <h2 class="popup-title">You Are Registered!</h2>
-            <p class="popup-message">Your registration has been successfully submitted. We'll contact you soon with further details.</p>
-            <button class="popup-close" onclick="closePopup()">Close</button>
         </div>
     </div>
 
