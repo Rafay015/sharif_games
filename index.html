@@ -1350,32 +1350,6 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.sport-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Center card animation for mobile
-        const isMobile = window.innerWidth <= 768;
-        
-        if (isMobile) {
-            const centerObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                        entry.target.classList.add('center-view');
-                    } else {
-                        entry.target.classList.remove('center-view');
-                    }
-                });
-            }, { 
-                threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-                rootMargin: '-30% 0px -30% 0px'
-            });
-
-            document.querySelectorAll('.sport-card').forEach(card => {
-                centerObserver.observe(card);
-            });
-        }
-
         // Make section title visible
         setTimeout(() => {
             document.querySelector('.section-title').classList.add('visible');
