@@ -220,19 +220,12 @@
             position: relative;
             z-index: 1;
             pointer-events: auto;
-            will-change: transform;
-            -webkit-transform: translateZ(0);
         }
 
         .sport-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .sport-card:not(.visible) {
-            pointer-events: none;
-        }
-
 
         .sport-card::before {
             content: "";
