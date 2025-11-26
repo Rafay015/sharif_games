@@ -216,12 +216,23 @@
             opacity: 0;
             transform: translateY(50px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            z-index: 1;
+            pointer-events: auto;
+            will-change: transform;
+            -webkit-transform: translateZ(0);
         }
 
         .sport-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .sport-card:not(.visible) {
+            pointer-events: none;
+        }
+
 
         .sport-card::before {
             content: "";
@@ -239,7 +250,7 @@
         }
 
          @media (max-width: 600px) {
-             .sport-card:focus::before {
+             .sport-card:active::before {
                  left: 100%;
              }
          }
@@ -251,7 +262,7 @@
         }
 
         @media (max-width: 600px) {
-            .sport-card:focus {
+            .sport-card:active {
                 transform: translateY(-10px) scale(1.05);
                 box-shadow: 0 20px 50px rgba(249, 191, 29, 0.6);
                 border-color: #f9bf1d;
@@ -270,7 +281,7 @@
         }
 
          @media (max-width: 600px) {
-             .sport-card:focus .sport-icon {
+             .sport-card:active .sport-icon {
                  transform: scale(1.2) rotate(5deg);
              }
          }
@@ -297,7 +308,7 @@
         }
 
          @media (max-width: 600px) {
-             .sport-card:focus .sport-description{
+             .sport-card:active .sport-description{
                  color: rgba(255, 255, 255, 0.95);
                  height: auto;
                  margin-top: 10px;
@@ -330,7 +341,7 @@
         }
 
         @media (max-width: 600px) {
-            .see-more-btn:focus {
+            .see-more-btn:active {
                 background: #f9bf1d;
                 color: #0e067f;
                 transform: translateX(-5px);
@@ -342,7 +353,7 @@
         }
 
          @media (max-width: 600px) {
-             .sport-card:focus .see-more-btn {
+             .sport-card:active .see-more-btn {
                  visibility: visible;
              }
          }
